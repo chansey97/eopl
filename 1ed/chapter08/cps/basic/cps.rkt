@@ -84,7 +84,10 @@
 
 (module+ main
   (require "./parse.rkt")
+  
+  (unparse (cps-exp (parse '(a (b c)))))
+  (unparse (cps-exp (parse '(a (b (c d))))))
 
-
+  (unparse (cps-exp (parse '((a b) (c d)))))
   )
 
