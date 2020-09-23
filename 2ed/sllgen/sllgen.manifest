@@ -1,0 +1,13 @@
+(
+"./sllgen.scm"
+"./top.s"
+"./parser-gen.scm"
+"./syntax.s"
+"./eliminate-arbno.s"
+"./first-and-follow.s"
+"./gen-table.s"
+"./check-table.s"
+"./scan.s"
+"./parse.s"
+"./error-handling.scm"
+)
