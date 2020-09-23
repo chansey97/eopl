@@ -296,3 +296,10 @@
   (lambda ()
     (do-all-tests define-datatype:tester)
     (define-datatype:reset-registries)))
+
+
+;; (define-datatype:test-all)
+
+;; FIXME:
+;; blist?: undefined;
+;; This fails in original code as well.
