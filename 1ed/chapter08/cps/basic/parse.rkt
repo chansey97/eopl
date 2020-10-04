@@ -4,7 +4,7 @@
 (provide (all-defined-out))
 
 (define prim-ops
-  '(+ - * / > < = eq? null? symbol? number? pair? zero? and or not cons car cdr list))
+  '(+ - * / > < = eq? null? symbol? number? pair? zero? and or not add1 cons car cdr list))
 
 (define parse
   (lambda (datum)
@@ -121,7 +121,7 @@
   
   (unparse (parse '(letrec ((var1 ((λ (x) (a b)) c))
                             (var2 (λ (x) (abc d)))
-                            (var3 (let ((var1 exp1)
+                            (var3 (let ((var1 exp1) ;; letrec's binding expr must be a lambda, otherwise there will be problems.
                                         (var2 exp2))
                                     body)))
                      (body u v w))))
