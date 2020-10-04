@@ -81,7 +81,7 @@
       ;; (let ((fun1 (lambda (x y z) (+ 1 2 3 )))) body)
 
       [`(letrec ,decls ,body)
-       (let ((funcs (map parse-letrec-func decls)))
+       (let ((funcs (map parse-letrec-func-decl decls)))
          (letrec-exp (map letrec-func-name funcs)
                      (map letrec-func-formals funcs)
                      (map letrec-func-body funcs)
@@ -97,7 +97,7 @@
        (error "parse-exp: Invalid concrete syntax" datum)]
       )))
 
-(define parse-letrec-func
+(define parse-letrec-func-decl
   (lambda (datum)
     (match datum
       [`(,name (,(or 'λ 'lambda) ,formals ,body))
@@ -105,7 +105,7 @@
        (letrec-func name formals (parse-exp body))
        ]
       [_
-       (error "parse-letrec-func Invalid concrete syntax" datum)])
+       (error "parse-letrec-func-decl Invalid concrete syntax" datum)])
     ))
 
 (define scan&parse
